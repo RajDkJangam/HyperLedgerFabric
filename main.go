@@ -1,12 +1,15 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
 
 	"github.com/servntire/servntire-demo/blockchain"
+	"github.com/servntire/servntire-demo/web"
+	"github.com/servntire/servntire-demo/web/controllers"
 )
 
 // Fix empty GOPATH with golang 1.8 (see https://github.com/golang/go/blob/1363eeba6589fca217e155c829b2a7c00bc32a92/src/go/build/build.go#L260-L277)
@@ -36,8 +39,92 @@ func main() {
 	}
 
 	// Initialize the Fabric SDK
-	_, err := blockchain.Initialize()
+	fabricSdk, err := blockchain.Initialize()
 	if err != nil {
-		fmt.Printf("Unable to initialize the Fabric SDK: %v", err)
+		fmt.Printf("Unable to initialize the Fabric SDK: %v\n", err)
 	}
+
+	// Install and instantiate the chaincode
+	err = fabricSdk.InstallAndInstantiateCC()
+	if err != nil {
+		fmt.Printf("Unable to install and instantiate the chaincode: %v\n", err)
+	}
+
+	// Query the chaincode
+	response, err := fabricSdk.QueryAll()
+	if err != nil {
+		fmt.Printf("Unable to query all records from the chaincode: %v\n", err)
+	} else {
+		fmt.Printf("Response from the queryAll: %v\n", response)
+	}
+
+	// Query a Single Record
+	response, _, err = fabricSdk.QueryOne("CAR4")
+	if err != nil {
+		fmt.Printf("Unable to query one from chaincode: %v\n", err)
+	} else {
+		fmt.Printf("Response from the queryOne: %v\n", response)
+	}
+
+	// Create New Car
+	type Car struct {
+		Make   string `json:"make"`
+		Model  string `json:"model"`
+		Colour string `json:"colour"`
+		Owner  string `json:"owner"`
+	}
+	carData := Car{}
+	carKey := "CAR10"
+	carData.Make = "Volkswagen"
+	carData.Model = "Vento"
+	carData.Colour = "grey"
+	carData.Owner = "Mohan"
+
+	RequestData, _ := json.Marshal(carData)
+	txId, err := fabricSdk.CreateCar(carKey, string(RequestData))
+
+	if err != nil {
+		fmt.Printf("Unable to create record on the chaincode: %v\n", err)
+	} else {
+		fmt.Printf("Successfully created record, transaction ID: %s\n", txId)
+	}
+
+	// Query the chaincode Again to retrieve updated data
+	response, err = fabricSdk.QueryAll()
+	if err != nil {
+		fmt.Printf("Unable to query all from the chaincode: %v\n", err)
+	} else {
+		fmt.Printf("Response from the queryAll: %v\n", response)
+	}
+
+	// Changing Car Owner by Passing Key and Value
+	txId, err = fabricSdk.ChangeCarOwner("CAR10", "Tittu")
+	if err != nil {
+		fmt.Printf("Unable to invoke - Change Car Owner on the chaincode: %v\n", err)
+	} else {
+		fmt.Printf("Successfully invoke - Change Car Owner, transaction ID: %s\n", txId)
+	}
+
+	// Query again the chaincode
+	response, _, err = fabricSdk.QueryOne("CAR10")
+	if err != nil {
+		fmt.Printf("Unable to query to retrieve single record from the chaincode: %v\n", err)
+	} else {
+		fmt.Printf("Response from the query QueryOne: %s\n", response)
+	}
+
+	// Retrieving History of a Record
+
+	response, err = fabricSdk.GetHistoryofCar("CAR10")
+	if err != nil {
+		fmt.Printf("Unable to query to retrieve history of record from the chaincode: %v\n", err)
+	} else {
+		fmt.Printf("Response from the Chain for history of a record: %s\n", response)
+	}
+
+	// Make the web application listening
+	app := &controllers.Application{
+		Fabric: fabricSdk,
+	}
+	web.Serve(app)
 }
