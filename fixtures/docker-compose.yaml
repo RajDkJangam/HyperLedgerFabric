@@ -128,6 +128,6 @@ services:
       - builder
 
 
- # builder is only here to create a dependency on the image (not used as part of compose)
+ ## builder is only here to create a dependency on the image (not used as part of compose)
   builder:
     image: hyperledger/fabric-ccenv:x86_64-1.0.0-rc1
