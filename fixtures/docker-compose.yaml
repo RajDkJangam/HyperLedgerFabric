@@ -53,7 +53,7 @@ services:
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer
       - ORDERER_GENERAL_TLS_ENABLED=true
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/keystore/ecd9f80eb183352d5d4176eeb692e30bbfba4c38813ff9a0b6b799b546dda1d8_sk
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/keystore/e8a4fdaacf1ef1d925686f19f56eb558b6c71f0116d85916299fc1368de2d58a_sk
       - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/signcerts/orderer.example.com-cert.pem
       - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/msp/orderer/cacerts/example.com-cert.pem, /etc/hyperledger/msp/peerOrg1/cacerts/org1.example.com-cert.pem, /etc/hyperledger/msp/peerOrg2/cacerts/org2.example.com-cert.pem]
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
@@ -128,6 +128,6 @@ services:
       - builder
 
 
- ## builder is only here to create a dependency on the image (not used as part of compose)
+ # builder is only here to create a dependency on the image (not used as part of compose)
   builder:
     image: hyperledger/fabric-ccenv:x86_64-1.0.0-rc1
