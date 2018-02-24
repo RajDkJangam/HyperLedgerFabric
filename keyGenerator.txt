@@ -1,1 +1,18 @@
-openssl req -newkey rsa:2048 -nodes -keyout keystore/ordkey.pem -x509 -days 365 -out signcerts/orderer.example.com-cert.pem
+##
+openssl req -newkey rsa:2048 -nodes -keyout orderers/orderer.example.com/keystore/ordkey.pem -x509 -days 365 -out orderers/orderer.example.com/signcerts/orderer.example.com-cert.pem
+
+cp orderers/orderer.example.com/signcerts/orderer.example.com-cert.pem orderers/orderer.example.com/cacerts/example.com-cert.pem
+
+cp orderers/orderer.example.com/signcerts/orderer.example.com-cert.pem orderers/orderer.example.com/tlscacerts/example.com-cert.pem
+
+cp orderers/orderer.example.com/signcerts/orderer.example.com-cert.pem users/Admin@example.com/admincerts/example.com-cert.pem
+
+cp orderers/orderer.example.com/signcerts/orderer.example.com-cert.pem users/Admin@example.com/cacerts/example.com-cert.pem
+
+cp orderers/orderer.example.com/cacerts/example.com-cert.pem msp/cacerts/example.com-cert.pem
+
+cp orderers/orderer.example.com/cacerts/example.com-cert.pem msp/signcerts/example.com-cert.pem
+
+cp orderers/orderer.example.com/cacerts/example.com-cert.pem msp/tlscacerts/example.com-cert.pem
+
+cp orderers/orderer.example.com/cacerts/example.com-cert.pem ca/example.com-cert.pem
