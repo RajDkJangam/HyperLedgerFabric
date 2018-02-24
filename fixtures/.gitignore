@@ -6,5 +6,5 @@ docker-compose.yaml-bak
 latest-env.sh
 root.pem
 tls_client-cert.pem
-tls-client-key.pem
+tls_client-key.pem
 .DS_Store
