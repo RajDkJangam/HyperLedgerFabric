@@ -36,7 +36,7 @@ func Initialize() (*FabricSetup, error) {
 
 		// Chaincode parameters
 		ChaincodeId:      "servntire-demo-service",
-		ChaincodeVersion: "v2.1.1",
+		ChaincodeVersion: "v1.0.0",
 		ChaincodeGoPath:  os.Getenv("GOPATH"),
 		ChaincodePath:    "github.com/servntire/servntire-demo/chaincode",
 	}
@@ -209,4 +209,3 @@ func (setup *FabricSetup) InstallAndInstantiateCC() error {
 
 	return nil
 }
-
