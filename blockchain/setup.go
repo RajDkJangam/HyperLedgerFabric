@@ -78,8 +78,8 @@ func Initialize() (*FabricSetup, error) {
 	// The authentication will be made with local certificates
 	ordererUser, err := fcutil.GetPreEnrolledUser(
 		client,
-		"ordererOrganizations/example.com/users/Admin@example.com/keystore",
-		"ordererOrganizations/example.com/users/Admin@example.com/signcerts",
+		"ordererOrganizations/example.com/users/Admin@example.com/msp/keystore",
+		"ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts",
 		"ordererAdmin",
 	)
 	if err != nil {
@@ -90,8 +90,8 @@ func Initialize() (*FabricSetup, error) {
 	// The authentication will be made with local certificates
 	orgUser, err := fcutil.GetPreEnrolledUser(
 		client,
-		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/keystore",
-		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/signcerts",
+		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore",
+		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts",
 		"peerorg1Admin",
 	)
 	if err != nil {
@@ -209,3 +209,4 @@ func (setup *FabricSetup) InstallAndInstantiateCC() error {
 
 	return nil
 }
+
