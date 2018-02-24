@@ -10,6 +10,16 @@ client:
       # Certificate location absolute path
       certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem"
       serverHostOverride: "peer0.org1.example.com"
+  # peer1
+  - host: "localhost"
+    port: 8051
+    eventHost: "localhost"
+    eventPort: 8053
+    primary: true
+    tls:
+      # Certificate location absolute path
+      certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/cacerts/ca.org2.example.com-cert.pem"
+      serverHostOverride: "peer0.org2.example.com"
 
  tls:
   enabled: true
