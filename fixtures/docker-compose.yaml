@@ -12,7 +12,7 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/channel/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/b7e1d93cc9cfa9d1e1547863dccc226974c12436a4a8e81fd5d52b92c09d6a02_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/c62610b8e02840c31fd05c6dbb6156a18de1e88b6aeb08c0dbe6927b0f5f61b2_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/server_localhost.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/server_localhost-key.pem
@@ -30,7 +30,7 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/channel/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/fdc4ba761df7bef5f446804afd635cd8a974d0e3e9daf8d9af3abcb6e3e7729b_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/1579ff144324b3d9ff088ca43d7e40be36909fd8f8085a571d9e53521072e7aa_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/server_localhost.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/server_localhost-key.pem
@@ -53,7 +53,7 @@ services:
       - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer
       - ORDERER_GENERAL_TLS_ENABLED=true
-      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/keystore/0a74bd4aa10fe569ab3e4ec35fffd30e6978b4321e52cf9cca3f9912a284c0d8_sk
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/keystore/2587328580314d2c583cc2c5db240827823de7f065693a2b7481986692df7a8b_sk
       - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/signcerts/orderer.example.com-cert.pem
       - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/msp/orderer/cacerts/ca.example.com-cert.pem, /etc/hyperledger/msp/peerOrg1/cacerts/ca.org1.example.com-cert.pem, /etc/hyperledger/msp/peerOrg2/cacerts/ca.org2.example.com-cert.pem]
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
@@ -79,7 +79,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
       - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/keystore/b37899f026228235e86fc00678cd8431665472193323c465d709f6a45513ddc5_sk
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/keystore/62a4afe6a64898fe719e3be48400aa25281c50eda0defd0c19a8b674323bbccc_sk
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/signcerts/peer0.org1.example.com-cert.pem
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/cacerts/ca.org1.example.com-cert.pem
       # # the following setting starts chaincode containers on the same
@@ -108,7 +108,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
       - CORE_PEER_ADDRESS=peer0.org2.example.com:7051
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/keystore/ffa4f5b9ce6f2ea5a9998507065ff2ccbbb9d40ab6be74185610b0686a54547b_sk
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/keystore/0f02c78a69a722f1ed5f5d8f7aa92b81c94c07d1b9c1c91721dc0d7d04368dc0_sk
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/signcerts/peer0.org2.example.com-cert.pem
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/cacerts/ca.org2.example.com-cert.pem
       # # the following setting starts chaincode containers on the same
