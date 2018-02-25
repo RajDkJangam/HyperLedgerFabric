@@ -14,15 +14,15 @@ services:
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/channel/ca.org1.example.com-cert.pem
       - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/a88ec882d12d7f460ffd6d0df6a7e5312be4bfe557d29ae6c389725b2da45459_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.crt
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.key
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/tlsca.org1.example.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/1383c08bd3c25c667cec6da36870e02dff4bf6b61a9cb977203e002208122a1b_sk
     ports:
       - 7054:7054
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
       - ./channel/crypto-config/peerOrganizations/org1.example.com/ca:/etc/hyperledger/fabric-ca-server-config/channel
-      - ./channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/users/Admin@example.com/tls:/etc/hyperledger/fabric-ca-server-config/tls
-    container_name: ca_peerOrg1
+      - ./channel/crypto-config/peerOrganizations/org1.example.com/tlsca:/etc/hyperledger/fabric-ca-server-config/tls
+    container_name: ca.org1.example.com
 
   ca1:
     image: hyperledger/fabric-ca:x86_64-1.0.0-rc1
@@ -32,15 +32,15 @@ services:
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/channel/ca.org2.example.com-cert.pem
       - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/61fbdbc0cd9725da981fda8ea262425ba3e553d190bfc9c55ef101379ff29d58_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.crt
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.key
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/tlsca.org2.example.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/f3364bdc1ff3d2417d6b8b9246d42be617f9a0e88d5b25e99604db795ad9af8b_sk
     ports:
       - 8054:7054
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
       - ./channel/crypto-config/peerOrganizations/org2.example.com/ca:/etc/hyperledger/fabric-ca-server-config/channel
-      - ./channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/users/Admin@example.com/tls:/etc/hyperledger/fabric-ca-server-config/tls
-    container_name: ca_peerOrg2
+      - ./channel/crypto-config/peerOrganizations/org2.example.com/tlsca:/etc/hyperledger/fabric-ca-server-config/tls
+    container_name: ca.org2.example.com
 
   orderer.example.com:
     container_name: orderer.example.com
