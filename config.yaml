@@ -24,7 +24,7 @@ client:
     size: 200
 
  orderer:
-  host: "orderer.example.com"
+  host: "localhost"
   port: 7050
   tls:
     # Certificate location absolute path
@@ -40,12 +40,12 @@ client:
   name: "ca.org1.example.com"
   homeDir: "/tmp/"
   mspDir: "msp"
-  serverURL: "https://orderer.example.com:7054" #7054
+  serverURL: "https://localhost:7054" #7054
   certfiles :
-    - "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
+    - "$GOPATH/src/github.com/chainhero/heroes-service/fixtures/tls/fabricca/ca/ca_root.pem"
   client:
-   keyfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/users/Admin@example.com/tls/server.key"
-   certfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/users/Admin@example.com/tls/server.key"
+   keyfile: "$GOPATH/src/github.com/chainhero/heroes-service/fixtures/tls/fabricca/client/client_client1-key.pem"
+   certfile: "$GOPATH/src/github.com/chainhero/heroes-service/fixtures/tls/fabricca/client/client_client1.pem"
 
  cryptoconfig:
   path: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config"
