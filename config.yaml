@@ -45,7 +45,7 @@ client:
   level: info
 
  fabricCA:
-  tlsEnabled: true
+  tlsEnabled: false
   id: "Org1MSP"
   name: "ca-org1"
   homeDir: "/tmp/"
