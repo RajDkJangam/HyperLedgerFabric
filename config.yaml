@@ -37,7 +37,7 @@ client:
  fabricCA:
   tlsEnabled: true
   id: "Org1MSP"
-  name: "ca-org1"
+  name: "ca.org1.example.com"
   homeDir: "/tmp/"
   mspDir: "msp"
   serverURL: "https://localhost:7054" #7054
