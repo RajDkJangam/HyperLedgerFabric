@@ -2,5 +2,5 @@
 vendor/**
 keyGenerator.txt
 fixtures/**
-!fixtures/fabricca/tls/**
+!fixtures/tls/**
 !fixtures/docker-compose.yaml
