@@ -45,12 +45,12 @@ client:
   level: info
 
  fabricCA:
-  tlsEnabled: true
+  tlsEnabled: false
   id: "Org1MSP"
   name: "ca-org1"
   homeDir: "/tmp/"
   mspDir: "msp"
-  serverURL: "https://localhost:7054" #7054
+  serverURL: "http://localhost:7054" #7054
   certfiles :
     - "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/fabricca/tls/ca/ca_root.pem"
   client:
