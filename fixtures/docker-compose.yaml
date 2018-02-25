@@ -12,13 +12,13 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/channel/ca.org1.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/0fa67725cc0ae7942a2009890de4328ffcce5d0a129602086dfa1225187ba186_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/c5cab9c33eacc0cd10ccbcce975daa8ae5bb6ec314762704045c1ff293caaf38_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       #- FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.crt
       #- FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.key
     ports:
       - 7054:7054
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/0fa67725cc0ae7942a2009890de4328ffcce5d0a129602086dfa1225187ba186_sk -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/c5cab9c33eacc0cd10ccbcce975daa8ae5bb6ec314762704045c1ff293caaf38_sk -b admin:adminpw -d'
     volumes:
       - ./channel/crypto-config/peerOrganizations/org1.example.com/ca:/etc/hyperledger/fabric-ca-server-config/channel
       #- ./tlsn/fabricca/server:/etc/hyperledger/fabric-ca-server-config/tls
@@ -30,13 +30,13 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/channel/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/35da26af2780fc725795d3cdad6cb248c6432ba9aed56c4183375e06e5bd71ab_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/channel/26b143e35206bb8bd043367e19eb1476998ae6c355a89017d09778ae169a143f_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       #- FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.crt
       #- FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/tls/server.key
     ports:
       - 8054:7054
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/35da26af2780fc725795d3cdad6cb248c6432ba9aed56c4183375e06e5bd71ab_sk -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/26b143e35206bb8bd043367e19eb1476998ae6c355a89017d09778ae169a143f_sk -b admin:adminpw -d'
     volumes:
       - ./channel/crypto-config/peerOrganizations/org2.example.com/ca:/etc/hyperledger/fabric-ca-server-config/channel
       #- ./tlsn/fabricca/server:/etc/hyperledger/fabric-ca-server-config/tls
