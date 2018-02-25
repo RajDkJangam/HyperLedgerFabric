@@ -42,10 +42,10 @@ client:
   mspDir: "msp"
   serverURL: "https://localhost:7054" #7054
   certfiles :
-    - "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/tls/ca.crt"
+    - "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tlsn/fabricca/ca/ca.crt"
   client:
-   keyfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/tls/server.key"
-   certfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/tls/server.crt"
+   keyfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tlsn/fabricca/client/client.key"
+   certfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tlsn/fabricca/client/client.crt"
 
  cryptoconfig:
   path: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config"
