@@ -36,7 +36,7 @@ func Initialize() (*FabricSetup, error) {
 
 		// Chaincode parameters
 		ChaincodeId:      "servntire-demo-service",
-		ChaincodeVersion: "v3.0.0",
+		ChaincodeVersion: "v2.1.1",
 		ChaincodeGoPath:  os.Getenv("GOPATH"),
 		ChaincodePath:    "github.com/servntire/servntire-demo/chaincode",
 	}
@@ -78,8 +78,8 @@ func Initialize() (*FabricSetup, error) {
 	// The authentication will be made with local certificates
 	ordererUser, err := fcutil.GetPreEnrolledUser(
 		client,
-		"ordererOrganizations/example.com/users/Admin@example.com/msp/keystore",
-		"ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts",
+		"ordererOrganizations/example.com/users/Admin@example.com/keystore",
+		"ordererOrganizations/example.com/users/Admin@example.com/signcerts",
 		"ordererAdmin",
 	)
 	if err != nil {
@@ -90,8 +90,8 @@ func Initialize() (*FabricSetup, error) {
 	// The authentication will be made with local certificates
 	orgUser, err := fcutil.GetPreEnrolledUser(
 		client,
-		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore",
-		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts",
+		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/keystore",
+		"peerOrganizations/org1.example.com/users/Admin@org1.example.com/signcerts",
 		"peerorg1Admin",
 	)
 	if err != nil {

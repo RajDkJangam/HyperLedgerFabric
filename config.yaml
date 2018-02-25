@@ -8,18 +8,8 @@ client:
     primary: true
     tls:
       # Certificate location absolute path
-      certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem"
+      certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/cacerts/org1.example.com-cert.pem"
       serverHostOverride: "peer0.org1.example.com"
-  # peer0
-  # - host: "localhost"
-  #  port: 8051
-  #  eventHost: "localhost"
-  #  eventPort: 8053
-  #  primary: false
-  #  tls:
-  #    # Certificate location absolute path
-  #    certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/cacerts/ca.org2.example.com-cert.pem"
-  #    serverHostOverride: "peer0.org2.example.com"
 
  tls:
   enabled: true
@@ -37,8 +27,8 @@ client:
   host: "localhost"
   port: 7050
   tls:
-    # #Certificate location absolute path
-    certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem"
+    # Certificate location absolute path
+    certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/cacerts/example.com-cert.pem"
     serverHostOverride: "orderer.example.com"
 
  logging:
@@ -47,15 +37,15 @@ client:
  fabricCA:
   tlsEnabled: true
   id: "Org1MSP"
-  name: "ca.org1.example.com"
+  name: "ca-org1"
   homeDir: "/tmp/"
   mspDir: "msp"
   serverURL: "https://localhost:7054" #7054
   certfiles :
-    - "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/fabricca/tls/ca/ca_root.pem"
+    - "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tls/fabricca/ca/ca_root.pem"
   client:
-   keyfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/fabricca/tls/certs/client/client_client1-key.pem"
-   certfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/fabricca/tls/certs/client/client_client1.pem"
+   keyfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tls/fabricca/client/client_client1-key.pem"
+   certfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tls/fabricca/client/client_client1.pem"
 
  cryptoconfig:
   path: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config"
