@@ -1,6 +1,7 @@
 .DS_Store
 vendor/**
 keyGenerator.txt
-fixtures/**
-!fixtures/tls/
+!fixtures/**
+fixtures/*
+!fixtures/tls
 !fixtures/docker-compose.yaml
