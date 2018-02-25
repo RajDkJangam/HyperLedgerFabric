@@ -8,7 +8,7 @@ client:
     primary: true
     tls:
       # Certificate location absolute path
-      certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/cacerts/org1.example.com-cert.pem"
+      certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem"
       serverHostOverride: "peer0.org1.example.com"
 
  tls:
