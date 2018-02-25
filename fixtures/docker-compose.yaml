@@ -93,7 +93,7 @@ services:
       - 7053:7053
     volumes:
         - /var/run/:/host/var/run/
-        - ./channel/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp:/etc/hyperledger/msp/peer
+        - ./channel/crypto-config/peerOrganizations/org1.example.com/msp:/etc/hyperledger/msp/peer
     depends_on:
       - orderer.example.com
       - builder
@@ -122,7 +122,7 @@ services:
       - 8053:7053
     volumes:
         - /var/run/:/host/var/run/
-        - ./channel/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp:/etc/hyperledger/msp/peer
+        - ./channel/crypto-config/peerOrganizations/org2.example.com/msp:/etc/hyperledger/msp/peer
     depends_on:
       - orderer.example.com
       - builder

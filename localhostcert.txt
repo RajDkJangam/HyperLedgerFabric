@@ -1,0 +1,11 @@
+openssl genrsa -out ca/ca.key 4096
+openssl req -x509 -new -nodes -key ca/ca.key -sha256 -days 1024 -out ca/ca.crt
+
+openssl genrsa -out server/server.key 2048
+openssl req -new -key server/server.key -out server/server.csr
+openssl x509 -req -in server/server.csr -CA ca/ca.crt -CAkey ca/ca.key -CAcreateserial -out server/server.crt -days 500 -sha256
+
+
+openssl genrsa -out client/client.key 2048
+openssl req -new -key client/client.key -out client/client.csr
+openssl x509 -req -in client/client.csr -CA ca/ca.crt -CAkey ca/ca.key -CAcreateserial -out client/client.crt -days 500 -sha256
