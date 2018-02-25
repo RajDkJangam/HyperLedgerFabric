@@ -55,7 +55,7 @@ services:
       - ORDERER_GENERAL_TLS_ENABLED=true
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
       - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
-      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt /var/hyperledger/orderer/tls/ca_server.crt]
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
     command: orderer
     ports:
@@ -64,6 +64,7 @@ services:
         - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
         - ./channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp:/etc/hyperledger/msp/orderer
         - ./channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/:/var/hyperledger/orderer/tls
+        - ./tlsn/fabricca/ca/ca.crt:/var/hyperledger/orderer/tls/ca_server.crt
 
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
