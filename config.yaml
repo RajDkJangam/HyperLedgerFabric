@@ -37,7 +37,7 @@ client:
   host: "localhost"
   port: 7050
   tls:
-    # Certificate location absolute path
+    # #Certificate location absolute path
     certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem"
     serverHostOverride: "orderer.example.com"
 
