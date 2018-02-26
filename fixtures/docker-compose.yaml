@@ -121,7 +121,6 @@ services:
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.example.com:7051
       - CORE_PEER_LOCALMSPID=Org2MSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/
-      - CORE_PEER_ADDRESS=peer0.org2.example.com:7051
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_PROFILE_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
