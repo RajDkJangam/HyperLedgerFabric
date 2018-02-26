@@ -8,7 +8,7 @@ client:
     primary: true
     tls:
       # Certificate location absolute path
-      certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem"
+      certificate: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/cacerts/msp/ca.org1.example.com-cert.pem"
       serverHostOverride: "peer0.org1.example.com"
 
  tls:
@@ -40,12 +40,12 @@ client:
   name: "ca-org1"
   homeDir: "/tmp/"
   mspDir: "msp"
-  serverURL: "https://localhost:7054" #7054
+  serverURL: "https://localhost:7054"
   certfiles :
-    - "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tlsn/fabricca/ca/ca.crt"
+    - "$GOPATH/src/github.com/chainhero/heroes-service/fixtures/tls/fabricca/ca/ca_root.pem"
   client:
-   keyfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tlsn/fabricca/client/client.key"
-   certfile: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/tlsn/fabricca/client/client.crt"
+   keyfile: "$GOPATH/src/github.com/chainhero/heroes-service/fixtures/tls/fabricca/client/client_client1-key.pem"
+   certfile: "$GOPATH/src/github.com/chainhero/heroes-service/fixtures/tls/fabricca/client/client_client1.pem"
 
  cryptoconfig:
-  path: "$GOPATH/src/github.com/servntire/servntire-demo/fixtures/channel/crypto-config"
+  path: "$GOPATH/src/github.com/chainhero/heroes-service/fixtures/channel/crypto-config"
