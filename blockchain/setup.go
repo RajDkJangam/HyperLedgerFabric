@@ -32,7 +32,7 @@ func Initialize() (*FabricSetup, error) {
 	setup := FabricSetup{
 		// Channel parameters
 		ChannelId:     "mychannel",
-		ChannelConfig: "fixtures/channel/mychannel.tx",
+		ChannelConfig: "fixtures/channel-artifacts/channel.tx",
 
 		// Chaincode parameters
 		ChaincodeId:      "servntire-demo-service",
